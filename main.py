@@ -16,21 +16,13 @@ def read_input():
                 delivery[char] = (row, col)
     return delivery, start
 
-def permutations(lista):
-    permutas_final = []
-    permuta_atual = []
-    
-    def backtrack():
-        if len(lista) == len(permuta_atual):
-            permutas_final.append(permuta_atual[:])
-            return
-        for item in lista:
-            if item not in permuta_atual:
-                permuta_atual.append(item)
-                backtrack()
-                permuta_atual.pop()
-    backtrack()
-    return permutas_final
+def permutations(elements):
+    if len(elements) <= 1:
+        yield elements
+    else:
+        for p in permutations(elements[1:]):
+            for i in range(len(elements)):
+                yield p[:i] + elements[0:1] + p[i:]
 
 def main():
     """Função principal que calcula o caminho ótimo para as entregas."""

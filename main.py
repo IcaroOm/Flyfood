@@ -36,7 +36,7 @@ def main():
         return
     
     # Define a lista com a chave todos os pontos no grid (ex: ['A', 'B', 'C'])
-    points = delivery.keys()
+    points = list(delivery.keys())
 
     # Dicionário para armazenar distâncias calculadas e evitar repetição
     distance_cache = {}
